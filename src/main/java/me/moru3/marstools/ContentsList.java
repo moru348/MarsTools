@@ -3,6 +3,8 @@ package me.moru3.marstools;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.ObjIntConsumer;
@@ -47,6 +49,12 @@ public class ContentsList<T> extends ArrayList<T> {
     public ContentsList<T> filterNotNull() {
         ContentsList<T> temp = new ContentsList<>();
         this.forEach(value -> { if(value!=null) { temp.add(value); } });
+        return temp;
+    }
+
+    public Map<Integer, T> enumerate() {
+        Map<Integer, T> temp = new HashMap<>();
+        this.forEach((value, index) -> temp.put(index, value));
         return temp;
     }
 }
