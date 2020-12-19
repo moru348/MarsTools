@@ -3,7 +3,6 @@ package me.moru3.marstools;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Consumer;
@@ -58,6 +57,7 @@ public class ContentsList<T> extends ArrayList<T> {
         return temp;
     }
 
+    @SuppressWarnings("unchecked")
     public ContentsList<ContentsList<T>> divide(int count) {
         ContentsList<ContentsList<T>> temp = new ContentsList<>();
         int pageCount = (int) Math.ceil(this.size()/(double) count);
