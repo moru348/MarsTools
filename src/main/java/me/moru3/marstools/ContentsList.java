@@ -51,8 +51,8 @@ public class ContentsList<T> extends ArrayList<T> {
         return temp;
     }
 
-    public Map<Integer, T> enumerate() {
-        Map<Integer, T> temp = new HashMap<>();
+    public ContentsMap<Integer, T> enumerate() {
+        ContentsMap<Integer, T> temp = new ContentsMap<>();
         this.forEach((value, index) -> temp.put(index, value));
         return temp;
     }
