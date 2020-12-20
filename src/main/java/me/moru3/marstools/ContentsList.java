@@ -10,21 +10,22 @@ import java.util.function.Function;
 import java.util.function.ObjIntConsumer;
 
 public class ContentsList<T> extends ArrayList<T> {
+
     public ContentsList<T> filter(@NotNull Function<T, Boolean> filter) {
         ContentsList<T> temp = new ContentsList<>();
         this.forEach(value -> { if(filter.apply(value)) { temp.add(value); } });
         return temp;
     }
 
-    public ContentsList<Object> map(@NotNull Function<T, Object> map) {
-        ContentsList<Object> temp = new ContentsList<>();
-        this.forEach(value -> temp.add(map.apply(value)));
-        return temp;
-    }
-
     public <P> ContentsList<P> toArray(@NotNull Class<P> type) {
         ContentsList<P> temp = new ContentsList<>();
         this.forEach(value -> temp.add((type).cast(value)));
+        return temp;
+    }
+
+    public ContentsList<Object> map(@NotNull Function<T, Object> map) {
+        ContentsList<Object> temp = new ContentsList<>();
+        this.forEach(value -> temp.add(map.apply(value)));
         return temp;
     }
 
