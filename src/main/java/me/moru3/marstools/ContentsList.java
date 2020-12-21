@@ -106,11 +106,22 @@ public class ContentsList<T> extends ArrayList<T> {
     }
 
     public <P> ContentsMap<T, P> coalesce(ContentsList<P> contentsList) {
-        if(this.size()!=contentsList.size()) throw new IllegalArgumentException("The size of the list is different.");
         ContentsMap<T, P> temp = new ContentsMap<>();
-        forEach((value, index) -> {
-            temp.put(value, contentsList.get(index));
-        });
+        ContentsList<T> content = fillSpaceNull(this.size()-1);
+        contentsList.forEach((value, index) -> temp.put(content.get(index), value));
+        return temp;
+    }
+
+    public ContentsList<T> fillSpaceNull(int size) {
+        ContentsList<T> temp = new ContentsList<>();
+        for(int i = 0;i<=size;i++) {
+            if(i<this.size()) {
+                T temp2 = this.get(i);
+                temp.add(temp2);
+            } else {
+                temp.add(null);
+            }
+        }
         return temp;
     }
 }
