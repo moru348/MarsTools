@@ -70,7 +70,7 @@ public class ContentsList<T> extends ArrayList<T> {
 
     public ContentsList<T> slice(int min, int max) {
         ContentsList<T> temp = new ContentsList<>();
-        for(int i = min;i<=max;i++) {
+        for(int i = min;i <= (this.size()<max?max:this.size()-1);i++) {
             temp.add(this.get(i));
         }
         return temp;
