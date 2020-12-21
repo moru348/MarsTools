@@ -31,7 +31,7 @@ publishing {
         target(MavenPublication) {
             groupId 'me.moru3'
             artifactId 'marstools'
-            version '0.8'
+            version '0.8-debug'
             from components.java
             artifact tasks.sourceJar
         }

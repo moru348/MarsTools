@@ -92,4 +92,16 @@ public class ContentsList<T> extends ArrayList<T> {
         }
         return temp;
     }
+
+    public ContentsList<T> replace(T oldValue, T newValue) {
+        ContentsList<T> temp = new ContentsList<>();
+        this.forEach(i -> {
+            if(oldValue==i) {
+                temp.add(newValue);
+                return;
+            }
+            temp.add(i);
+        });
+        return temp;
+    }
 }
