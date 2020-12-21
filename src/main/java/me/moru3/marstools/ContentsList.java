@@ -104,4 +104,13 @@ public class ContentsList<T> extends ArrayList<T> {
         });
         return temp;
     }
+
+    public <P> ContentsMap<T, P> coalesce(ContentsList<P> contentsList) {
+        if(this.size()!=contentsList.size()) throw new IllegalArgumentException("The size of the list is different.");
+        ContentsMap<T, P> temp = new ContentsMap<>();
+        forEach((value, index) -> {
+            temp.put(value, contentsList.get(index));
+        });
+        return temp;
+    }
 }
