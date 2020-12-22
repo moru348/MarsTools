@@ -3,13 +3,18 @@ package me.moru3.marstools;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Collections;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.ObjIntConsumer;
 
 public class ContentsList<T> extends ArrayList<T> {
+
+    public ContentsList(T[] list) {
+        Collections.addAll(this, list);
+    }
+
+    public ContentsList() {}
 
     public ContentsList<T> filter(@NotNull Function<T, Boolean> filter) {
         ContentsList<T> temp = new ContentsList<>();
