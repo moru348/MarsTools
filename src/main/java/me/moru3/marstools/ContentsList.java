@@ -4,6 +4,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Random;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.ObjIntConsumer;
@@ -128,5 +129,10 @@ public class ContentsList<T> extends ArrayList<T> {
             }
         }
         return temp;
+    }
+
+    public T random() {
+        Random rand = new Random();
+        return this.get(rand.nextInt(this.size()));
     }
 }
