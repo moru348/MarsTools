@@ -15,6 +15,10 @@ public class ContentsList<T> extends ArrayList<T> {
         Collections.addAll(this, list);
     }
 
+    public ContentsList(T value) {
+        this.add(value);
+    }
+
     public ContentsList() {}
 
     public ContentsList<T> filter(@NotNull Function<T, Boolean> filter) {
