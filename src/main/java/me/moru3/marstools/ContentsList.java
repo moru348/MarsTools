@@ -72,8 +72,10 @@ public class ContentsList<T> extends ArrayList<T> {
     public ContentsList<ContentsList<T>> divide(int count) {
         ContentsList<ContentsList<T>> temp = new ContentsList<>();
         int pageCount = (int) Math.ceil(this.size()/(double) count);
+        int index = 0;
         for(int i = 1;i<=pageCount;i++) {
-            temp.add(this.slice(i-1, (i*count)-1));
+            index++;
+            temp.add(this.slice(i-index, (i*count)-1));
         }
         return temp;
     }
