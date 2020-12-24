@@ -74,8 +74,8 @@ public class ContentsList<T> extends ArrayList<T> {
         int pageCount = (int) Math.ceil(this.size()/(double) count);
         int index = 0;
         for(int i = 1;i<=pageCount;i++) {
-            index++;
-            temp.add(this.slice(i-index, (i*count)-1));
+            temp.add(this.slice(i-1+index, (i*count)-1));
+            index+=count-1;
         }
         return temp;
     }
