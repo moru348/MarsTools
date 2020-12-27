@@ -4,7 +4,7 @@ plugins {
 }
 
 group 'me.moru3.marstools'
-version '0.15'
+version '0.21'
 
 repositories {
     jcenter()
@@ -31,7 +31,7 @@ publishing {
         target(MavenPublication) {
             groupId 'me.moru3'
             artifactId 'marstools'
-            version '0.14'
+            version '0.21'
             from components.java
             artifact tasks.sourceJar
         }

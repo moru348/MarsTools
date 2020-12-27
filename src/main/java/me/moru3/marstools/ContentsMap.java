@@ -26,4 +26,8 @@ public class ContentsMap<K, V> extends HashMap<K, V> {
         temp.addAll(this.values());
         return temp;
     }
+
+    public ContentsList<K> getKey(V value) {
+        return this.filter((k, v) -> v.equals(value)).getKeys();
+    }
 }
